@@ -1,11 +1,18 @@
 const express = require("express");
 const cors = require('cors');
+const bodyParser = require('body-parser');
+
 const app = express();
+var jsonParser = bodyParser.json()
+app.use(jsonParser);
+
+var urlencodedParser = bodyParser.urlencoded({extended: false});
+
 let port = process.env.PORT || 3000;
 const importData = require("./data.json");
 
-
 app.use(cors());
+
 app.get("/", (req, res) => {
     res.send("Hello world!");
 });
@@ -14,17 +21,11 @@ app.get("/users", (req, res) => {
     res.send(importData);
 });
 
-app.post("/sum", function(req, res) {
-//     console.log(req.body);
-//   var num1 = Number(req.body.numberA);
-//   var num2 = Number(req.body.numberB);
-    
-//   console.log('herreeeee');
+app.post("/login", urlencodedParser, (req, res) => {
+    var userName = req.body.user;
+    var pwd      = req.body.pwd;
 
-//   var result = num1 + num2 ;
-    
-//   res.send("Addition - " + result);
-  res.send("Post request to the homepage");
+    res.send("Post request to the homepage with User " + userName + " and pwd " + pwd + " to log in");
 });
 
 app.listen(port, () => {
