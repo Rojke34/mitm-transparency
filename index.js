@@ -13,7 +13,7 @@ app.get("/users", (req, res) => {
     res.send(importData);
 });
 
-app.post("/", function(req, res) {
+app.post("/sum", function(req, res) {
   var num1 = Number(req.body.num1);
   var num2 = Number(req.body.num2);
     
