@@ -16,7 +16,7 @@ app.use(jsonParser);
 
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
-let port = process.env.PORT || 8000;
+let port = process.env.PORT || 443;
 const importData = require("./data.json");
 
 app.use(cors());
