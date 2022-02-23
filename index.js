@@ -37,7 +37,7 @@ app.post("/login", urlencodedParser, (req, res) => {
     res.send(JSON.stringify({ data: "Post request to the homepage with User " + userName + " and pwd " + pwd + " to log in" }));
 });
 
-var server = app.listen(port, function () {
+var server = app.listen(port, '127.0.0.1', function () {
    var host = server.address().address
    var port = server.address().port
    console.log("Example app listening at http://%s:%s", host, port)
