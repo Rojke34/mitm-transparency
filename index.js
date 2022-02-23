@@ -34,6 +34,7 @@ app.post("/login", urlencodedParser, (req, res) => {
     var userName = req.body.user;
     var pwd      = req.body.pwd;
     console.log('here', userName, pwd);
+
     res.send(JSON.stringify({ data: "Post request to the homepage with User " + userName + " and pwd " + pwd + " to log in" }));
 });
 
