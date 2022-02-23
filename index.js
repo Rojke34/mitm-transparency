@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require('cors');
 const bodyParser = require('body-parser');
-var vhost = require('vhost');
 
 const https = require('https');
 const fs = require('fs');
@@ -17,7 +16,7 @@ app.use(jsonParser);
 
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
-let port = process.env.PORT || 443;
+let port = process.env.PORT || 3100;
 const importData = require("./data.json");
 
 app.use(cors());
