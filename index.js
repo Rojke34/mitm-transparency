@@ -37,15 +37,15 @@ app.post("/login", urlencodedParser, (req, res) => {
     res.send(JSON.stringify({ data: "Post request to the homepage with User " + userName + " and pwd " + pwd + " to log in" }));
 });
 
-var server = app.listen(port, 'localhost', function () {
-   var host = server.address().address
-   var port = server.address().port
-   console.log("Example app listening at http://%s:%s", host, port)
-})
+// var server = https.listen(port, 'localhost', function () {
+//    var host = server.address().address
+//    var port = server.address().port
+//    console.log("Example app listening at http://%s:%s", host, port)
+// })
 
-// https.createServer(options, app).listen(port, () => {
-//     console.log(`Node server running on https://rootcertificate.com:${port}`);
-// });
+https.createServer(options, app).listen(port, () => {
+    console.log(`Node server running on https://localhost:${port}`);
+});
 
 
 //openssl genrsa -des3 -out myCA.key 2048
