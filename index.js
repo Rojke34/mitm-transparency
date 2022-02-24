@@ -6,8 +6,8 @@ const https = require('https');
 const fs = require('fs');
 
 const options = {
-    key: fs.readFileSync('rootcertificate.key'),
-    cert: fs.readFileSync('rootcertificate.crt')
+    key: fs.readFileSync('testing2022.test.key'),
+    cert: fs.readFileSync('testing2022.test.crt')
 };
 
 const app = express();
@@ -41,4 +41,15 @@ https.createServer(options, app).listen(port, () => {
     console.log(`Node server running on https://rootcertificate.com:${port}`);
 });
 
+
+//openssl genrsa -des3 -out myCA.key 2048
+//openssl req -x509 -new -nodes -key myCA.key -sha256 -days 1825 -out myCA.pem
+
+//openssl genrsa -out testing2022.test.key 2048
+
+//openssl req -new -key testing2022.test.key -out testing2022.test.csr
+
+
+
+//openssl x509 -req -in testing2022.test.csr -CA myCA.pem -CAkey myCA.key -CAcreateserial -out testing2022.test.crt -days 825 -sha256 -extfile mitm.kevin.ext
 
