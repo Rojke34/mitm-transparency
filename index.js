@@ -16,13 +16,13 @@ app.use(jsonParser);
 
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
-let port = process.env.PORT || 3100;
+let port = process.env.PORT || 3000;
 const importData = require("./data.json");
 
 app.use(cors());
 
 app.get("/", (req, res) => {
-    res.send("Hello world!");
+    res.send("Hello world! ey papu que todo bien, como vas con el ejercicio?");
 });
 
 app.get("/users", (req, res) => {
@@ -37,9 +37,15 @@ app.post("/login", urlencodedParser, (req, res) => {
     res.send(JSON.stringify({ data: "Post request to the homepage with User " + userName + " and pwd " + pwd + " to log in" }));
 });
 
-https.createServer(options, app).listen(port, () => {
-    console.log(`Node server running on https://rootcertificate.com:${port}`);
-});
+var server = app.listen(port, 'localhost', function () {
+   var host = server.address().address
+   var port = server.address().port
+   console.log("Example app listening at http://%s:%s", host, port)
+})
+
+// https.createServer(options, app).listen(port, () => {
+//     console.log(`Node server running on https://rootcertificate.com:${port}`);
+// });
 
 
 //openssl genrsa -des3 -out myCA.key 2048
