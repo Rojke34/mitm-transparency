@@ -6,9 +6,13 @@ const https = require('https');
 const fs = require('fs');
 
 const options = {
-    key: fs.readFileSync('testing2022.test.key'),
-    cert: fs.readFileSync('testing2022.test.crt')
+    key: fs.readFileSync('/home/ec2-user/ssl/testing2022.key'),
+    cert: fs.readFileSync('/home/ec2-user/ssl/testing2022.crt')
 };
+
+
+
+
 
 const app = express();
 var jsonParser = bodyParser.json()
