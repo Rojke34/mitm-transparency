@@ -26,7 +26,7 @@ const importData = require("./data.json");
 app.use(cors());
 
 app.get("/", (req, res) => {
-    res.send("Hello world! ey papu que todo bien, como vas con el ejercicio?");
+    res.send("Hello world!");
 });
 
 app.get("/users", (req, res) => {
